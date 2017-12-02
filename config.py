@@ -3,6 +3,8 @@
 # This should be the main account that you use.
 # Do not need to use the "/u".
 main_account = 'youraccount'
+keyword = '!quebec' # They keyword that people need to type in order to opt-in.
+                    # Make it as unique as possible, and include an exclamation mark before it.
 
 # The ID of the thread. This is the random digits that come after "/comment/" in the thread URL.
 # See the example below for what it might look like
