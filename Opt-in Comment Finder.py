@@ -58,16 +58,16 @@ def look_for_comments(reddit): # Searches through the comments in the post
         subscribers = get_subscribed_users(c, conn)
         oldComments = get_old_comments(c, conn)
         for comment in submission.comments.list():
-            if '!quebec' in comment.body and comment.author.name not in subscribers and comment.id not in oldComments:
+            if config.keyword in comment.body and comment.author.name not in subscribers and comment.id not in oldComments:
                 add_to_old_comments(c, conn, comment.id)
                 add_user_to_database(c, conn, comment.author.name)
                 comment.reply('Okay, I have added you to my list.'+commentFooter)
                 print('Replied to new subscribed user')
-            elif '!quebec' in comment.body and comment.author.name in subscribers and comment.id not in oldComments:
+            elif config.keyword in comment.body and comment.author.name in subscribers and comment.id not in oldComments:
                 add_to_old_comments(c, conn, comment.id)
                 comment.reply('I already have you on my list'+commentFooter)
                 print('Replied to old subscribed user')
-            elif '!quebec' not in comment.body and comment.id not in oldComments:
+            elif config.keyword not in comment.body and comment.id not in oldComments:
                 add_to_old_comments(c, conn, comment.id)
 
 
